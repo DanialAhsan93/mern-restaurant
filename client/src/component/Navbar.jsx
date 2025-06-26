@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { TiThMenu } from "react-icons/ti";
+import { IoMdClose } from "react-icons/io";
+
 
 function Navbar({ menuOpen, setMenuOpen }) {
-  // const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <nav className="w-full bg-blue-600 text-white fixed top-0 left-0 z-50">
@@ -11,7 +13,10 @@ function Navbar({ menuOpen, setMenuOpen }) {
           className="text-xl focus:outline-none"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          ☰
+          {
+            menuOpen ? <IoMdClose /> : <TiThMenu />
+          }
+
         </button>
       </div>
     </nav>
