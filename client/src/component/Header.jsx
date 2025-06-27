@@ -19,13 +19,13 @@ function Header() {
             }`}
         >
           <div className="w-[85%] mx-auto flex flex-col gap-4">
-            <Link to={"/"} className="hover:underline">
+            <Link to={"/"} className="hover:underline" onClick={() => setMenuOpen(!menuOpen)}>
               Home
             </Link>
-            <Link to={"/about"} className="hover:underline">
+            <Link to={"/about"} className="hover:underline" onClick={() => setMenuOpen(!menuOpen)}>
               About
             </Link>
-            <Link to={"/signin"} className="hover:underline">
+            <Link to={"/signin"} className="hover:underline" onClick={() => setMenuOpen(!menuOpen)}>
               Sign In
             </Link>
           </div>

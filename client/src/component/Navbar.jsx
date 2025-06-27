@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import { TiThMenu } from "react-icons/ti";
 import { IoMdClose } from "react-icons/io";
 import { assetsData } from '../data/assetsdata';
+import { Button } from 'flowbite-react';
+import { FaMoon, FaSun } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleTheme } from '../redux/theme/themeSlice';
 
 function Navbar({ menuOpen, setMenuOpen }) {
 
+  const {theme} = useSelector((state) => state.theme);
+  const dispatch = useDispatch();
   return (
     <>
       {/* if you donot want a fix navbar */}
@@ -16,15 +22,23 @@ function Navbar({ menuOpen, setMenuOpen }) {
           <div className='w-[201px] h-[76px] flex'>
             <img src={assetsData.Logo} alt="logo" className='' />
           </div>
-          <button
-            className="text-xl focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            {
-              menuOpen ? <IoMdClose className='w-[32px] h-[32px]' /> : <TiThMenu className='w-[32px] h-[32px]' />
-            }
 
-          </button>
+          <div className='flex space-x-3'>
+            <Button className="bg-white" onClick={() => dispatch(toggleTheme())}>
+              <FaMoon className='sm:w-5 sm:h-3 w-2 h-2' />
+            </Button>
+
+            <button
+              className="text-xl focus:outline-none"
+              onClick={() => setMenuOpen(!menuOpen)}
+            >
+              {
+                menuOpen ? <IoMdClose className='text-black w-[32px] h-[32px]' /> : <TiThMenu className='text-black w-[32px] h-[32px]' />
+              }
+
+            </button>
+          </div>
+
         </div>
       </nav>
     </>

@@ -19,33 +19,33 @@ function Sectionsecond() {
       </div>
 
       <div>
-        <div class="grid grid-cols-12 grid-rows-12 md:gap-5 gap-2 p-4 mt-8">
-          <div class="col-span-6 row-span-8 bg-blue-300 transition-transform duration-300 ease-in-out hover:scale-105">
-            <img src={assetsData.gridimage1} alt="Image 1" class="w-full h-full object-cover"/>
+        <div className="grid grid-cols-12 grid-rows-12 md:gap-5 gap-2 p-4 mt-8">
+          <div className="col-span-6 row-span-8 bg-blue-300 transition-transform duration-300 ease-in-out hover:scale-105">
+            <img src={assetsData.gridimage1} alt="Image 1" className="w-full h-full object-cover"/>
           </div>
 
-          <div class="col-start-7 col-span-3 row-span-8 bg-red-300 transition-transform duration-300 ease-in-out hover:scale-105">
-            <img src={assetsData.gridimage2} alt="Image 2" class="w-full h-full object-cover"/>
+          <div className="col-start-7 col-span-3 row-span-8 bg-red-300 transition-transform duration-300 ease-in-out hover:scale-105">
+            <img src={assetsData.gridimage2} alt="Image 2" className="w-full h-full object-cover"/>
           </div>
 
-          <div class="col-start-10 col-span-3 row-span-4 bg-green-300 transition-transform duration-300 ease-in-out hover:scale-105">
-            <img src={assetsData.gridimage3} alt="Image 3" class="w-full h-full object-cover"/>
+          <div className="col-start-10 col-span-3 row-span-4 bg-green-300 transition-transform duration-300 ease-in-out hover:scale-105">
+            <img src={assetsData.gridimage3} alt="Image 3" className="w-full h-full object-cover"/>
           </div>
 
-          <div class="col-span-3 row-span-4 row-start-9 bg-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
-            <img src={assetsData.gridimage4} alt="Image 4" class="w-full h-full object-cover"/>
+          <div className="col-span-3 row-span-4 row-start-9 bg-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
+            <img src={assetsData.gridimage4} alt="Image 4" className="w-full h-full object-cover"/>
           </div>
 
-          <div class="col-span-3 row-span-4 row-start-9 bg-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
-            <img src={assetsData.gridimage5} alt="Image 4" class="w-full h-full object-cover"/>
+          <div className="col-span-3 row-span-4 row-start-9 bg-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
+            <img src={assetsData.gridimage5} alt="Image 4" className="w-full h-full object-cover"/>
           </div>
 
-          <div class="col-span-3 row-span-4 row-start-9 bg-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
-            <img src={assetsData.gridimage6} alt="Image 4" class="w-full h-full object-cover"/>
+          <div className="col-span-3 row-span-4 row-start-9 bg-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
+            <img src={assetsData.gridimage6} alt="Image 4" className="w-full h-full object-cover"/>
           </div>
 
-          <div class="col-span-3 row-span-8 row-start-5 bg-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
-            <img src={assetsData.gridimage7} alt="Image 4" class="w-full h-full object-cover"/>
+          <div className="col-span-3 row-span-8 row-start-5 bg-yellow-300 transition-transform duration-300 ease-in-out hover:scale-105">
+            <img src={assetsData.gridimage7} alt="Image 4" className="w-full h-full object-cover"/>
           </div>
         </div>
       </div>

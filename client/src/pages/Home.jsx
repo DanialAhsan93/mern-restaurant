@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { assetsData } from '../data/assetsdata';
 import Sectionsecond from '../component/homepagesections/Sectionsecond';
 import Heroanimation from '../component/homepagesections/Heroanimation';
+import { useSelector } from 'react-redux';
 
 function Home() {
 
-  
+  const {theme} = useSelector((state) => state.theme);
+  console.log("HomePage",theme)
 
   return (
-    <div>
+    <div className='min-h-screen'>
       <div className="w-[85%] mx-auto mt-6 transition-all duration-[3000ms] ease-in-out">
 
         <section id="home" className="mt-8">
           <div className='flex flex-wrap justify-center items-center'>
-            {/* <div className='left md:w-[50%] md:hidden'>
-              <img src={assetsData.Heroimage} alt="hero-image" />
-            </div> */}
+           
             <Heroanimation />
 
             <div className='right md:w-[50%]'>
