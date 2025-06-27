@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import { useDispatch, useSelector } from 'react-redux';
+import { HashRouter } from 'react-router-dom';
 
 function App() {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ function App() {
     <>
       <div className={`${theme === 'light' ? 'bg-white text-gray-700' :
         'dark:text-gray-200 dark:bg-[rgb(16,23,42)]'}`}>
-        <BrowserRouter>
+        <HashRouter>
           <Header />
           <Routes>
 
@@ -30,7 +31,7 @@ function App() {
 
           </Routes>
           <Footer />
-        </BrowserRouter>
+        </HashRouter>
       </div >
 
     </>
