@@ -7,11 +7,10 @@ import Signin from './pages/Signin';
 import Dashboard from './pages/Dashboard';
 import Header from './component/Header';
 import Footer from './component/Footer';
-import { useDispatch, useSelector } from 'react-redux';
-import { HashRouter } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function App() {
-  const dispatch = useDispatch();
+
   const { theme } = useSelector((state) => state.theme);
 
   console.log(theme)
@@ -19,7 +18,7 @@ function App() {
     <>
       <div className={`${theme === 'light' ? 'bg-white text-gray-700' :
         'dark:text-gray-200 dark:bg-[rgb(16,23,42)]'}`}>
-        <HashRouter>
+        <BrowserRouter>
           <Header />
           <Routes>
 
@@ -31,7 +30,7 @@ function App() {
 
           </Routes>
           <Footer />
-        </HashRouter>
+        </BrowserRouter>
       </div >
 
     </>

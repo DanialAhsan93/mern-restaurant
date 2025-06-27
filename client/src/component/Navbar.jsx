@@ -9,7 +9,7 @@ import { toggleTheme } from '../redux/theme/themeSlice';
 
 function Navbar({ menuOpen, setMenuOpen }) {
 
-  const {theme} = useSelector((state) => state.theme);
+  const { theme } = useSelector((state) => state.theme);
   const dispatch = useDispatch();
   return (
     <>
@@ -17,15 +17,20 @@ function Navbar({ menuOpen, setMenuOpen }) {
 
       {/* <nav className="w-full bg-white"> </nav> and the go to Header.jsx and follow instructions */}
 
-      <nav className="w-full fixed top-0 left-0 z-50 bg-white">
+      <nav className={`w-full fixed top-0 left-0 z-50 bg-white`}>
         <div className="w-[85%] mx-auto flex justify-between items-center py-4">
           <div className='w-[201px] h-[76px] flex'>
             <img src={assetsData.Logo} alt="logo" className='' />
           </div>
 
           <div className='flex space-x-3'>
-            <Button className="bg-white" onClick={() => dispatch(toggleTheme())}>
-              <FaMoon className='sm:w-5 sm:h-3 w-2 h-2' />
+            <Button color={'transparent'} className="bg-white" onClick={() => dispatch(toggleTheme())}>
+              {
+                theme === 'light' ?
+                  <FaMoon className='sm:w-5 sm:h-3 w-2 h-2' /> :
+                  <FaSun className='sm:w-5 sm:h-3 w-2 h-2 dark:text-gray-700' /> 
+              }
+
             </Button>
 
             <button

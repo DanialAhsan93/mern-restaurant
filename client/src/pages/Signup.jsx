@@ -91,7 +91,7 @@ function Signup() {
                 placeholder='username'
                 id='username'
                 onChange={handleInput}
-                className='w-96 rounded-lg text-[14px] dark:text-gray-700 border-gray-500'
+                className='sm:w-96 w-full rounded-lg text-[14px] dark:text-gray-700 border-gray-500'
 
               />
             </div>
@@ -105,7 +105,7 @@ function Signup() {
                 placeholder='name@company.com'
                 id='email'
                 onChange={handleInput}
-                className='w-96 rounded-lg text-[14px] dark:text-gray-700 border-gray-500'
+                className='sm:w-96 w-full rounded-lg text-[14px] dark:text-gray-700 border-gray-500'
 
               />
             </div>
@@ -118,7 +118,7 @@ function Signup() {
                 placeholder='Password'
                 id='password'
                 onChange={handleInput}
-                className='w-96 rounded-lg text-[14px] dark:text-gray-700 border-gray-500'
+                className='sm:w-96 w-full rounded-lg text-[14px] dark:text-gray-700 border-gray-500'
               />
             </div>
 
