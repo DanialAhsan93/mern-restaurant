@@ -110,17 +110,9 @@ function Signin() {
             </div>
 
 
-            {/* <Button gradientDuoTone={'purpleToPink'} type='submit' disabled={loading}>
-              {
-                loading ? (
-                  <>
-                    <Spinner size={'sm'} />
-                    <span className='pl-3'>loading...</span>
-                  </>
-                ) : 'Sign In'
-              }
-
-            </Button> */}
+            <Button className="bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 text-gray-900 hover:bg-gradient-to-bl focus:ring-red-100 dark:focus:ring-red-400 sm:w-96 w-full" type='submit'>
+              Sign In
+            </Button>
             {/* <OAuth /> */}
           </form>
 
