@@ -10,11 +10,10 @@ import { useSelector } from 'react-redux';
 function Signup() {
 
   const [form, formData] = useState({});
-  // const [errorMessage, seterrorMessage] = useState(null);
-  // const [loading, setloading] = useState(false);
-  // const { loading, error: errorMessage } = useSelector(state => state.user)
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const [errorMessage, seterrorMessage] = useState(null);
+  const [loading, setloading] = useState(false);
+  const navigate = useNavigate();
+
   const { theme } = useSelector((state) => state.theme)
 
   const handleInput = (e) => {
@@ -23,47 +22,37 @@ function Signup() {
 
   console.log(form);
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   if (!form.email || !form.password) {
-  //     // return seterrorMessage('Please fill out all the fields.')
-  //     return dispatch(signInFailure('Please fill out all the fields.'))
-  //   }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!form.username || !form.email || !form.password) {
+      return seterrorMessage('Please fill out all the fields.')
+    }
+    setloading(true);
+    try {
+      const response = await fetch('http://localhost:3000/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify(form),
+      })
 
-  //   try {
-  //     dispatch(signInStart())
+      const data = await response.json();
+      console.log(data)
+      if (data.success === false) {
+        setloading(false)
+        return seterrorMessage(data.message);
+      }
+      if (response.ok) {
+        setloading(false)
+        navigate('/signin')
+      };
 
-  //     const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/Signin`, {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       credentials: 'include',
-  //       body: JSON.stringify(form),
-  //     })
+    } catch (error) {
+      seterrorMessage(error.message)
+      setloading(false);
+    }
+  };
 
-  //     const data = await response.json();
-  //     console.log(data)
-  //     if (data.success === false) {
-  //       // setloading(false)
-  //       // return seterrorMessage(data.message);
-  //       dispatch(signInFailure(data.message));
-  //     }
-  //     // setloading(false)
-  //     if (response.ok) {
-  //       dispatch(signInSuccess(data))
-  //       navigate('/')
-  //     };
-  //     // console.log(data)
-  //     // if (data === "Signin successful" ) {
-  //     //   alert(data)
-  //     // }else{
-  //     //   alert(data.message)
-  //     // }
-  //   } catch (error) {
-  //     // seterrorMessage(error.message)
-  //     // setloading(false);
-  //     dispatch(signInFailure(error.message));
-  //   }
-  // }
   return (
     <div className='min-h-screen mt-20'>
       <div className='flex p-3 max-w-3xl flex-col md:flex-row md:items-center mx-auto gap-5'>
@@ -81,7 +70,7 @@ function Signup() {
         </div>
         {/* right */}
         <div className='flex-1'>
-          <form className='flex flex-col gap-4' >
+          <form className='flex flex-col gap-4' onSubmit={handleSubmit}>
             <div className=''>
               <label className="mb-2 block text-[14px]">
                 Your name
@@ -124,8 +113,17 @@ function Signup() {
             </div>
 
 
-            <Button className="bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 text-gray-900 hover:bg-gradient-to-bl focus:ring-red-100 dark:focus:ring-red-400 sm:w-96 w-full" type='submit'>
-               Sign Up
+            <Button className="bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 text-gray-900 hover:bg-gradient-to-bl focus:ring-red-100 dark:focus:ring-red-400 sm:w-96 w-full" type='submit' 
+            disabled={loading} >
+              {
+                loading ?
+                <>
+                <span className='pe-1'>Loading...</span><Spinner size='md'/>
+                 
+                </>
+                 :
+                'Sign Up'
+              }
             </Button>
             {/* <OAuth /> */}
           </form>
@@ -136,14 +134,14 @@ function Signup() {
               Sign In
             </Link>
           </div>
-          {/* 
+          
           {
             errorMessage && (
               <Alert className='mt-5' color={'failure'}>
                 {errorMessage}
               </Alert>
             )
-          } */}
+          }
         </div>
       </div>
     </div>
