@@ -1,10 +1,32 @@
 import { Avatar, Dropdown, DropdownDivider, DropdownHeader, DropdownItem } from 'flowbite-react';
 import React from 'react'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { signOutSuccess } from '../redux/user/userSlice';
 
 function NavUser() {
+    const dispatch = useDispatch();
     const { currentUser } = useSelector((state) => state.user);
+
+     const handleSignout = async () => {
+        try {
+          const res = await fetch('http://localhost:3000/api/user/signout', {
+            method: 'POST',
+            headers: {
+              "Content-Type": "application/json"
+            }
+          });
+    
+          const data = await res.json();
+          console.log(data);
+          if(res.ok) {
+            dispatch(signOutSuccess());
+          };
+    
+        } catch (error) {
+          console.log(error)
+        }
+      }
 
   return (
     <Dropdown
@@ -25,7 +47,7 @@ function NavUser() {
         </span>
       </Link>
       <DropdownDivider />
-      <DropdownItem>Sign out</DropdownItem>
+      <DropdownItem onClick={handleSignout}>Sign out</DropdownItem>
     </Dropdown>
   )
 }

@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';
 import { Link } from 'react-router-dom';
 import NavUser from './NavUser';
+import { signOutSuccess } from '../redux/user/userSlice';
 
 
 function Navbar({ menuOpen, setMenuOpen }) {
@@ -15,6 +16,8 @@ function Navbar({ menuOpen, setMenuOpen }) {
   const { theme } = useSelector((state) => state.theme);
   const { currentUser } = useSelector((state) => state.user);
   const dispatch = useDispatch();
+
+
   return (
     <>
       {/* if you donot want a fix navbar */}
@@ -37,13 +40,7 @@ function Navbar({ menuOpen, setMenuOpen }) {
 
             </Button>
             {
-              currentUser ?
-                <NavUser />
-                :
-                <>
-                  <img src=" https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" className='w-[30px] h-[30px] rounded-full' />
-
-                </>
+              currentUser && <NavUser />
             }
 
 
