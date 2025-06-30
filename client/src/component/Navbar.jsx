@@ -7,6 +7,8 @@ import { FaMoon, FaSun } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleTheme } from '../redux/theme/themeSlice';
 import { Link } from 'react-router-dom';
+import NavUser from './NavUser';
+
 
 function Navbar({ menuOpen, setMenuOpen }) {
 
@@ -36,26 +38,10 @@ function Navbar({ menuOpen, setMenuOpen }) {
             </Button>
             {
               currentUser ?
-                <Dropdown
-                  label={<Avatar alt={currentUser.username} img={currentUser.profilePicture} rounded />}
-                  arrowIcon={false}
-                  inline
-                >
-                  <DropdownHeader>
-                    <span className="block truncate text-sm font-medium">{currentUser.email}</span>
-                  </DropdownHeader>
-                  <Link to={'/dashboard?tab=profile'}>
-                    <span className='ps-4 text-sm font-normal text-gray-200'>
-                      Profile
-                    </span>
-                  </Link>
-                  <DropdownDivider />
-                  <DropdownItem>Sign out</DropdownItem>
-                </Dropdown> :
+                <NavUser />
+                :
                 <>
-
                   <img src=" https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="" className='w-[30px] h-[30px] rounded-full' />
-
 
                 </>
             }

@@ -8,7 +8,7 @@ import Dashboard from './pages/Dashboard';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import { useSelector } from 'react-redux';
-import OnlyAdminPrivateRoute from './component/OnlyAdminPrivateRoute';
+import PrivateRoute from './component/OnlyAdminPrivateRoute';
 
 function App() {
 
@@ -27,7 +27,7 @@ function App() {
             <Route path='/about' element={<About />} />
             <Route path='/signin' element={<Signin />} />
             <Route path='/signup' element={<Signup />} />
-            <Route element={<OnlyAdminPrivateRoute />} >
+            <Route element={<PrivateRoute />} >
               <Route path='/dashboard' element={<Dashboard />} />
 
             </Route>

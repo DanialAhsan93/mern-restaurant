@@ -7,8 +7,7 @@ import flowbiteReact from "flowbite-react/plugin/vite";
 export default defineConfig({
   plugins: [react(), flowbiteReact()],
   server: {
-    host: '0.0.0.0',  // <- required
-    port: 5173,       // <- optional, but good to be consistent
+    host: '0.0.0.0',  
     strictPort: true,
   },
   // base: '/mern-restaurant/',
